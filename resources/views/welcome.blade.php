@@ -1,0 +1,1000 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jesica Wahyu Izati | Web Developer Enthusiast</title>
+<meta name="description" content="Profil, latar belakang, dan keahlian Jesica Wahyu Izati.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #f7f5fc;
+  --ink: #292442;
+  --muted: #716b83;
+  --card: #ffffff;
+  --accent: #a78bfa;
+  --accent-ink: #21183b;
+  --line: #e5e0f0;
+  --shadow: 0 18px 45px rgba(41,36,66,.10);
+  --shadow-hover: 0 24px 55px rgba(41,36,66,.17);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #171426;
+    --ink: #f3efff;
+    --muted: #b9b2cc;
+    --card: #26213a;
+    --line: #403852;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background: var(--bg);
+  background-image:
+    radial-gradient(circle at 8% 12%, rgba(167,139,250,.13), transparent 24rem),
+    radial-gradient(circle at 92% 42%, rgba(41,36,66,.07), transparent 28rem);
+  color: var(--ink);
+  line-height: 1.65;
+  font-size: 17px;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: 'Bricolage Grotesque', 'DM Sans', sans-serif;
+  line-height: 1.1;
+  letter-spacing: -.02em;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.wrap {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+section {
+  padding: 72px 0;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  margin-bottom: 24px;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+  padding: 56px 0 72px;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.hero .wrap {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: clamp(2.6rem, 7vw, 4.6rem);
+  font-weight: 800;
+  animation: rise .8s both;
+}
+
+.role {
+  display: inline-block;
+  margin: 18px 0 14px;
+  padding: 6px 14px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 700;
+  border-radius: 999px;
+  font-size: .95rem;
+  box-shadow: 0 7px 18px rgba(167,139,250,.2);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.role:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 11px 24px rgba(167,139,250,.28);
+}
+
+.hero p {
+  color: var(--muted);
+  max-width: 46ch;
+  font-size: 1.1rem;
+  animation: rise .8s .22s both;
+}
+
+.hero .role {
+  animation: rise .8s .12s both;
+}
+
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: float 9s ease-in-out infinite;
+}
+
+.hero::before {
+  width: 240px;
+  height: 240px;
+  right: -75px;
+  top: -90px;
+  border: 1px solid rgba(167,139,250,.45);
+  box-shadow:
+    0 0 0 22px rgba(167,139,250,.05),
+    0 0 0 48px rgba(167,139,250,.035);
+}
+
+.hero::after {
+  width: 90px;
+  height: 90px;
+  left: 3%;
+  bottom: 5%;
+  background: rgba(167,139,250,.12);
+  animation-delay: -3s;
+}
+
+/* FOTO PROFIL */
+
+.photo {
+  justify-self: center;
+  width: min(320px, 80%);
+  aspect-ratio: 4/5;
+  border-radius: 160px 160px 24px 24px;
+  overflow: hidden;
+  background: var(--ink);
+  border: 6px solid var(--accent);
+  display: grid;
+  place-items: center;
+  position: relative;
+  box-shadow: 0 22px 55px rgba(41,36,66,.18);
+  animation: photoIn 1s .12s both,
+             photoFloat 6s 1.2s ease-in-out infinite;
+  transition: border-radius .35s ease, box-shadow .35s ease;
+}
+
+.photo:hover {
+  border-radius: 145px 145px 32px 32px;
+  box-shadow: 0 28px 65px rgba(41,36,66,.25);
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .65s cubic-bezier(.2,.8,.2,1);
+}
+
+.photo:hover img {
+  transform: scale(1.055);
+}
+
+.photo span {
+  font: 800 5rem 'Bricolage Grotesque', sans-serif;
+  color: var(--accent);
+}
+
+/* ================= TENTANG SAYA ================= */
+
+.about {
+  background: var(--ink);
+  color: #f7f5fc;
+  position: relative;
+  overflow: hidden;
+}
+
+.about .wrap {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 48px;
+}
+
+.about p {
+  margin-bottom: 14px;
+  color: #d9d3e8;
+}
+
+.about h2 {
+  position: relative;
+}
+
+.about h2::after {
+  content: "";
+  display: block;
+  width: 58px;
+  height: 4px;
+  margin-top: 16px;
+  border-radius: 9px;
+  background: var(--accent);
+}
+
+.about::after {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border: 1px solid rgba(167,139,250,.18);
+  border-radius: 50%;
+  right: -145px;
+  bottom: -180px;
+  box-shadow:
+    0 0 0 28px rgba(167,139,250,.035),
+    0 0 0 58px rgba(167,139,250,.025);
+  pointer-events: none;
+}
+
+.facts {
+  list-style: none;
+  border-top: 1px solid #514866;
+}
+
+.facts li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid #514866;
+  transition: padding .25s ease, background .25s ease;
+}
+
+.facts li:hover {
+  padding-left: 12px;
+  padding-right: 12px;
+  background: rgba(255,255,255,.055);
+}
+
+.facts b {
+  color: var(--accent);
+  text-align: right;
+}
+
+/* ================= KEAHLIAN ================= */
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 48px;
+}
+
+.skills li {
+  list-style: none;
+  padding: 8px 16px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  font-weight: 500;
+  background: var(--card);
+  box-shadow: 0 4px 12px rgba(41,36,66,.045);
+  transition: transform .25s ease,
+              background .25s ease,
+              color .25s ease,
+              box-shadow .25s ease;
+}
+
+.skills li:hover {
+  transform: translateY(-5px);
+  background: var(--ink);
+  color: #fff;
+  box-shadow: 0 10px 20px rgba(41,36,66,.14);
+}
+
+/* ================= KARTU PORTOFOLIO ================= */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+  transition: transform .3s ease,
+              box-shadow .3s ease,
+              border-color .3s ease;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), rgba(167,139,250,.15));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .35s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--accent);
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+}
+
+.card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+  transition: color .25s ease;
+}
+
+.card:hover h3 {
+  color: #8062d6;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: .98rem;
+}
+
+.card a {
+  display: inline-block;
+  margin-top: 12px;
+  font-weight: 700;
+}
+
+h3.sub {
+  font-size: 1.4rem;
+  margin: 0 0 16px;
+}
+
+/* ================= KONTAK ================= */
+
+.contact {
+  text-align: center;
+  background: var(--accent);
+  color: var(--accent-ink);
+  padding: 88px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact h2 {
+  margin-bottom: 12px;
+}
+
+.contact p {
+  max-width: 48ch;
+  margin: 0 auto 32px;
+}
+
+.contact::before,
+.contact::after {
+  content: "";
+  position: absolute;
+  border: 1px solid rgba(43,28,59,.15);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.contact::before {
+  width: 280px;
+  height: 280px;
+  left: -150px;
+  top: -170px;
+  box-shadow:
+    0 0 0 25px rgba(43,28,59,.035),
+    0 0 0 55px rgba(43,28,59,.025);
+}
+
+.contact::after {
+  width: 230px;
+  height: 230px;
+  right: -110px;
+  bottom: -160px;
+  box-shadow: 0 0 0 24px rgba(43,28,59,.035);
+}
+
+.wa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: #128c4a;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.2rem;
+  padding: 18px 36px;
+  border-radius: 999px;
+  box-shadow: 0 6px 0 #0a5a30;
+  position: relative;
+  z-index: 1;
+  transition: transform .25s ease,
+              box-shadow .25s ease,
+              filter .25s ease;
+}
+
+.wa:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 11px 0 #0a5a30;
+  filter: saturate(1.12);
+}
+
+.wa svg {
+  width: 28px;
+  height: 28px;
+  fill: currentColor;
+  transition: transform .3s ease;
+}
+
+.wa:hover svg {
+  transform: rotate(-12deg) scale(1.1);
+}
+
+footer {
+  padding: 20px;
+  text-align: center;
+  font-size: .9rem;
+  color: var(--muted);
+  background: var(--bg);
+}
+
+/* ================= ANIMASI ================= */
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes photoIn {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(18px);
+  }
+}
+
+@keyframes photoFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+/* Animasi saat halaman digulir */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .65s ease,
+              transform .65s cubic-bezier(.2,.75,.25,1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================= RESPONSIVE TABLET ================= */
+
+@media (max-width: 760px) {
+  .hero {
+    padding: 42px 0 56px;
+  }
+
+  .hero .wrap,
+  .about .wrap {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .photo {
+    order: -1;
+    width: min(270px, 72%);
+  }
+
+  .hero h1 {
+    font-size: clamp(2.4rem, 12vw, 3.5rem);
+  }
+
+  .role {
+    font-size: .84rem;
+    max-width: 100%;
+  }
+
+  section {
+    padding: 56px 0;
+  }
+
+  .card {
+    padding: 22px;
+  }
+}
+
+/* ================= RESPONSIVE HP ================= */
+
+@media (max-width: 480px) {
+  body {
+    font-size: 15px;
+  }
+
+  .wrap {
+    padding: 0 18px;
+  }
+
+  .hero {
+    padding: 35px 0 48px;
+  }
+
+  .hero .wrap {
+    gap: 25px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.2rem, 11vw, 3rem);
+    overflow-wrap: anywhere;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .photo {
+    width: min(230px, 75%);
+    border-width: 5px;
+  }
+
+  section {
+    padding: 48px 0;
+  }
+
+  h2 {
+    font-size: 1.9rem;
+  }
+
+  .about .wrap {
+    gap: 20px;
+  }
+
+  .facts li {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .facts b {
+    text-align: left;
+  }
+
+  .skills {
+    gap: 8px;
+    margin-bottom: 35px;
+  }
+
+  .skills li {
+    font-size: .85rem;
+    padding: 7px 12px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .contact {
+    padding: 65px 0;
+  }
+
+  .wa {
+    font-size: 1rem;
+    padding: 15px 22px;
+    gap: 9px;
+    max-width: 100%;
+  }
+
+  .wa svg {
+    width: 23px;
+    height: 23px;
+    flex-shrink: 0;
+  }
+
+  footer {
+    font-size: .8rem;
+    padding: 18px;
+  }
+}
+
+/* Mengurangi animasi jika diminta perangkat */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ========== HERO ========== -->
+
+<header class="hero">
+  <div class="wrap">
+
+    <div>
+      <h1>Jesica Wahyu Izati</h1>
+
+      <span class="role">
+        IT Student | Web & Mobile Developer Enthusiast
+      </span>
+
+      <p>
+        Halo! Saya seorang mahasiswa D3 Teknologi Informasi di
+        Politeknik Negeri Madiun yang memiliki ketertarikan besar
+        terhadap dunia teknologi dan pengembangan perangkat lunak.
+        Saya senang mempelajari hal-hal baru, mengembangkan ide kreatif,
+        serta menciptakan solusi digital yang bermanfaat melalui teknologi.
+      </p>
+    </div>
+
+    <!-- FOTO PROFIL -->
+
+    <div class="photo">
+      <img src="potoprofil.png" alt="Foto Profil">
+           alt="Foto profil Jesica Wahyu Izati"
+           onerror="this.remove();this.parentNode.innerHTML='<span>JW</span>'">
+    </div>
+
+  </div>
+</header>
+
+<main>
+
+<!-- ========== TENTANG SAYA ========== -->
+
+<section class="about" id="tentang">
+  <div class="wrap">
+
+    <h2>Tentang Saya</h2>
+
+    <div>
+      <p>
+        Saya merupakan mahasiswa D3 Teknologi Informasi di
+        Politeknik Negeri Madiun. Saat ini, saya sedang memperdalam
+        pengetahuan dan keterampilan di bidang teknologi informasi,
+        khususnya pengembangan website, aplikasi mobile, serta pemrograman.
+
+        Saya memiliki ketertarikan dalam mempelajari bagaimana teknologi
+        dapat dimanfaatkan untuk menyelesaikan berbagai permasalahan
+        sehari-hari. Dalam proses pembelajaran, saya senang mencoba
+        hal-hal baru, mengeksplorasi teknologi, dan mengembangkan proyek
+        sederhana sebagai sarana untuk meningkatkan kemampuan.
+
+        Bagi saya, setiap proyek merupakan kesempatan untuk belajar,
+        berinovasi, dan mengembangkan diri menjadi pribadi yang lebih
+        kompeten di bidang teknologi informasi.
+      </p>
+
+      <p>
+        Saya terus mengembangkan kemampuan di bidang teknologi informasi
+        melalui pembelajaran dan praktik secara langsung. Beberapa bidang
+        yang saya minati meliputi pemrograman, pengembangan website,
+        aplikasi Android, Internet of Things (IoT), serta pengelolaan
+        basis data.
+      </p>
+
+      <ul class="facts">
+        <li>
+          <span>Pendidikan</span>
+          <b>Semester 5, Prodi Teknologi Informasi</b>
+        </li>
+
+        <li>
+          <span>Minat</span>
+          <b>Web Development, UI/UX Design</b>
+        </li>
+
+        <li>
+          <span>Hobi</span>
+          <b>Mengeksplorasi teknologi, Belajar pemrograman</b>
+        </li>
+
+        <li>
+          <span>Domisili</span>
+          <b>Madiun, Jawa Timur</b>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== KEAHLIAN & PORTOFOLIO ========== -->
+
+<section id="keahlian">
+  <div class="wrap">
+
+    <h2>Keahlian &amp; Portofolio</h2>
+
+    <h3 class="sub">Keahlian</h3>
+
+    <p style="color:var(--muted); margin-bottom:20px;">
+      Beberapa kemampuan yang saya pelajari dan kembangkan
+      melalui perkuliahan, praktikum, dan pengerjaan proyek.
+    </p>
+
+    <ul class="skills">
+      <li>HTML &amp; CSS</li>
+      <li>JavaScript Dasar</li>
+      <li>PHP &amp; Laravel</li>
+      <li>Kotlin</li>
+      <li>Flutter &amp; Dart</li>
+      <li>MySQL</li>
+      <li>Firebase</li>
+      <li>ESP32 &amp; Arduino</li>
+      <li>Internet of Things (IoT)</li>
+      <li>UI/UX Design</li>
+      <li>Figma</li>
+      <li>Git &amp; GitHub</li>
+    </ul>
+
+    <h3 class="sub">Hobi &amp; Minat Teknologi</h3>
+
+    <div class="grid" style="margin-bottom:48px;">
+
+      <article class="card">
+        <h3>Web Development</h3>
+        <p>
+          Mempelajari dan mengembangkan website menggunakan HTML,
+          CSS, PHP, dan Laravel.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>Mobile Development</h3>
+        <p>
+          Mengeksplorasi pembuatan aplikasi Android menggunakan
+          Kotlin dan Flutter.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>Internet of Things</h3>
+        <p>
+          Mengembangkan perangkat pintar menggunakan ESP32,
+          sensor, mikrokontroler, dan sistem monitoring.
+        </p>
+      </article>
+
+    </div>
+
+    <h3 class="sub">Proyek &amp; Portofolio</h3>
+
+    <p style="color:var(--muted); margin-bottom:20px;">
+      Berikut beberapa proyek akademik dan hasil eksplorasi
+      teknologi yang pernah saya kerjakan.
+    </p>
+
+    <div class="grid">
+
+      <article class="card">
+        <h3>Sistem Otomasi Hidroponik Berbasis ESP32</h3>
+
+        <p>
+          Mengembangkan sistem monitoring dan kontrol hidroponik
+          menggunakan ESP32, sensor pH, TDS, suhu, pompa otomatis,
+          serta panel surya. Sistem ini dirancang untuk membantu
+          pemantauan kondisi tanaman secara lebih praktis.
+        </p>
+
+        <p style="margin-top:12px;">
+          <strong>Teknologi:</strong> ESP32, IoT, Firebase,
+          Laravel, Kotlin, Sensor.
+        </p>
+
+        <span class="role">IoT Project</span>
+      </article>
+
+      <article class="card">
+        <h3>Aplikasi Mobile Android</h3>
+
+        <p>
+          Mengembangkan aplikasi Android menggunakan Kotlin
+          dengan fitur navigasi antarhalaman, tampilan antarmuka,
+          pengelolaan data, dan integrasi Firebase.
+        </p>
+
+        <p style="margin-top:12px;">
+          <strong>Teknologi:</strong> Kotlin, Android Studio,
+          Firebase.
+        </p>
+
+        <span class="role">Mobile Development</span>
+      </article>
+
+      <article class="card">
+        <h3>Platform Pemesanan Buket Bunga Online</h3>
+
+        <p>
+          Merancang dan mengembangkan konsep website pemesanan
+          buket bunga secara online yang menyediakan katalog
+          produk, informasi produk, dan fitur pemesanan.
+        </p>
+
+        <p style="margin-top:12px;">
+          <strong>Teknologi:</strong> HTML, CSS, PHP, Laravel,
+          MySQL.
+        </p>
+
+        <span class="role">Web Development</span>
+      </article>
+
+      <article class="card">
+        <h3>Robot Arm Berbasis ESP32</h3>
+
+        <p>
+          Membuat prototipe lengan robot menggunakan ESP32
+          dan beberapa motor servo. Pergerakan robot dikendalikan
+          melalui koneksi Bluetooth menggunakan aplikasi Dabble.
+        </p>
+
+        <p style="margin-top:12px;">
+          <strong>Teknologi:</strong> ESP32, Servo Motor,
+          Bluetooth, Dabble.
+        </p>
+
+        <span class="role">Robotics &amp; IoT</span>
+      </article>
+
+    </div>
+
+    <div style="margin-top:32px;">
+      <p style="color:var(--muted);">
+        Setiap proyek menjadi pengalaman berharga bagi saya
+        untuk meningkatkan kemampuan pemrograman, kreativitas,
+        pemecahan masalah, serta pemahaman dalam penerapan
+        teknologi informasi di kehidupan sehari-hari.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== KONTAK & WHATSAPP ========== -->
+
+<section class="contact" id="kontak">
+  <div class="wrap">
+
+    <h2>Mari berdiskusi</h2>
+
+    <p>
+      Punya ide, proyek, atau pertanyaan?
+      Kirim pesan langsung ke WhatsApp saya.
+    </p>
+
+    <a class="wa"
+       target="_blank"
+       rel="noopener"
+       href="https://wa.me/62881027625251?text=Halo%20Nama%20Anda%2C%20saya%20melihat%20landing%20page%20Anda%20dan%20ingin%20berdiskusi.">
+
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M20.5 3.5A11.9 11.9 0 0 0 12 0C5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6A12 12 0 0 0 12 24c6.6 0 12-5.4 12-12 0-3.2-1.2-6.2-3.5-8.5zM12 22a10 10 0 0 1-5.1-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A10 10 0 1 1 12 22zm5.5-7.5c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.2-.6-.4z"/>
+      </svg>
+
+      Hubungi Saya via WhatsApp
+    </a>
+
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 Jesica Wahyu Izati.
+  Dibuat untuk tugas Digital Enterpreneur.
+</footer>
+
+<!-- ========== JAVASCRIPT ANIMASI SCROLL ========== -->
+
+<script>
+(() => {
+  const targets = document.querySelectorAll(
+    '.about h2, .about p, .facts, #keahlian h2, .skills, .sub, .card, #keahlian > .wrap > p'
+  );
+
+  if (
+    !('IntersectionObserver' in window) ||
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  ) {
+    return;
+  }
+
+  targets.forEach((el, index) => {
+    el.classList.add('reveal');
+    el.style.setProperty(
+      '--reveal-delay',
+      `${Math.min(index % 4, 3) * 90}ms`
+    );
+  });
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.12
+  });
+
+  targets.forEach(el => observer.observe(el));
+})();
+</script>
+
+</main>
+</body>
+</html>
